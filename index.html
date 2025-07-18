@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Frases Inspiradoras</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    #frase { font-size: 1.5em; margin: 20px; }
+    button { padding: 10px 20px; font-size: 1em; }
+  </style>
+</head>
+<body>
+  <h1>Frases Inspiradoras</h1>
+  <div id="frase">Clique no botão para ver uma frase!</div>
+  <button onclick="buscarFrase()">Nova Frase</button>
+  <script>
+    async function buscarFrase() {
+      const resp = await fetch('https://frases-backend-d32u.onrender.com/frase');
+      const data = await resp.json();
+      document.getElementById('frase').innerText = data.frase;
+    }
+  </script>
+</body>
+</html>
